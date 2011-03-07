@@ -2,7 +2,7 @@ import random
 
 class Landscape(object):
 
-    def __init__(self, width=65, height=30, bumpiness=2):
+    def __init__(self, width=65, height=30, bumpiness=3):
         self.width      = width
         self.height     = height
         self.bumpiness  = bumpiness
@@ -36,6 +36,30 @@ class Landscape(object):
 
             self.columns.append(Column(thisHeight))
             prevHeight = thisHeight
+        
+    def isLand(self, x, y):
+        try:
+            col = self.columns[x]
+            print col.height
+            if col.height >= y:
+                return True
+            else:
+                return False
+        except:
+            False
+    
+    def heightAt(self, x):
+        try:
+            return self.columns[x].height
+        except:
+            return None
+    
+    def drawTrajectory(self, t):
+        for x in range(0, self.width):
+            y = t.getHeight(x)
+            # TODO bad news!
+            if True:
+                pass
             
     
 class Column(object):
